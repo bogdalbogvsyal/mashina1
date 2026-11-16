@@ -1,9 +1,11 @@
-"""Entry filters for the radar: jurisdiction, capital barrier, regulation, offtake, and external financeability.
+"""Entry filters for the radar: jurisdiction, capital, regulation, offtake, financeability, and priority for the age-35 goal.
 
-These filters turn a price signal into actionable questions:
-1. Can I enter this with limited personal capital?
-2. Can external investors be brought in?
-3. Where does this make the most sense jurisdictionally?
+Goal by ~35: nearly passive high income. This usually comes from ownership in an asset or company sitting on a real deficit, not from a high salary.
+
+Priority ranking prefers signals where:
+- Ownership (equity or asset share) is realistic.
+- External capital can be brought in relatively early.
+- The project can be started in parallel with studies, not instead of them.
 """
 
 JURISDICTIONS = {
@@ -39,6 +41,12 @@ FINANCEABILITY = {
     "easier": "Offtake or asset-backed structure makes it more understandable for private credit, EIFO-type funds, or commodity investors.",
 }
 
+PRIORITY_35 = {
+    "high": "Ownership realistic + external capital possible + can run in parallel with studies.",
+    "medium": "One or two of the above are true.",
+    "low": "Mostly salary-like or requires full-time focus and large personal capital early.",
+}
+
 
 def score_entry(signal: str) -> dict:
     """Rough heuristic. Real decisions need case-by-case review."""
@@ -47,29 +55,49 @@ def score_entry(signal: str) -> dict:
     regulation = "medium"
     offtake = "medium"
     financeability = "medium"
+    ownership = "medium"
+    parallel = "medium"
     preferred = ["NL", "DK"]
 
     if any(w in s for w in ["software", "data", "trading", "arbitrage", "service"]):
         capital = "low"
         regulation = "light"
         financeability = "medium"
+        ownership = "high"
+        parallel = "high"
     if any(w in s for w in ["refining", "processing", "plant", "mine", "smelter"]):
         capital = "high"
         regulation = "heavy"
         financeability = "hard"
+        ownership = "high"
+        parallel = "low"
     if any(w in s for w in ["defense", "pharma", "energy infrastructure", "nuclear"]):
         regulation = "heavy"
         capital = "high"
         financeability = "hard"
+        ownership = "medium"
+        parallel = "low"
     if any(w in s for w in ["cbam", "green", "renewable", "tender", "public", "offtake"]):
         offtake = "strong"
         financeability = "easier"
+        ownership = "high"
+
+    # Simple priority for the age-35 goal
+    if ownership == "high" and financeability in ("easier", "medium") and parallel == "high":
+        priority_35 = "high"
+    elif ownership == "high" or financeability == "easier":
+        priority_35 = "medium"
+    else:
+        priority_35 = "low"
 
     return {
         "capital": capital,
         "regulation": regulation,
         "offtake": offtake,
         "financeability": financeability,
+        "ownership": ownership,
+        "parallel_with_studies": parallel,
+        "priority_35": priority_35,
         "preferred_jurisdictions": preferred,
-        "notes": "Heuristic only. Strong offtake improves external financeability the most.",
+        "notes": "Priority_35 prefers ownership + external capital + ability to start while studying.",
     }
