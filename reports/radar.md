@@ -1,45 +1,48 @@
 # Радар: где цены говорят о дефиците
 
-Запуск 2026-11-14 12:58 UTC. Работает сам, по расписанию в GitHub Actions, каждую неделю. Правило записано в `mashina/radar.py`.
+Запуск 2026-11-16 13:46 UTC. Работает сам, по расписанию в GitHub Actions, каждую неделю. Правило записано в `mashina/radar.py`.
 Списки полные, ни один товар не выбран вручную. Строка наверху — это вопрос «почему?», а не ответ:
 цена растёт и из-за пошлин, разовых событий, пересчёта индекса.
+
+К топ-сигналам добавлена оценка `priority_35` (насколько сигнал бьётся в цель почти пассивного большого дохода к ~35 годам).
+Высокий приоритет = реалистична доля в активе + можно привлечь внешний капитал + можно начинать параллельно с учёбой.
 
 ## А. Цены производителей ЕС по отраслям
 
 Источник: Eurostat, все опубликованные коды отраслей. Рядов: 295, месяц 2026-09. Медианный рост за 24 месяца: +3.9%. Держатся у максимума: 88% рядов.
 
-| Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. |
-|---|---|---|---|
-| Manufacture of refined petroleum products [C192] | +70% | +72% | +33% |
-| Manufacture of coke and refined petroleum products [C19] | +69% | +72% | +32% |
-| Copper production [C2444] | +35% | +34% | +42% |
-| Mining of metal ores [B07] | +35% | +33% | +33% |
-| MIG - energy [MIG_NRG] | +32% | +35% | +16% |
-| Manufacture of basic precious and other non-ferrous metals [C244] | +31% | +25% | +36% |
-| Manufacture of jewellery and related articles [C3212] | +31% | +17% | +42% |
-| Manufacture of jewellery, bijouterie and related articles [C321] | +26% | +14% | +36% |
-| Extraction of crude petroleum and natural gas [B06] | +23% | +41% | +13% |
-| Other non-ferrous metal production [C2445] | +23% | +25% | +15% |
-| Electricity, gas, steam and air conditioning supply [D35] | +22% | +24% | +12% |
-| Electricity, gas, steam and air conditioning supply [D] | +21% | +24% | +11% |
-| Aluminium production [C2442] | +18% | +18% | +19% |
-| Lead, zinc and tin production [C2443] | +16% | +16% | +14% |
-| Manufacture of basic metals [C24] | +15% | +15% | +14% |
-| Mining and quarrying [B] | +13% | +17% | +10% |
-| Casting of other non-ferrous metals [C2454] | +13% | +10% | +16% |
-| Repair of other equipment [C3319] | +12% | +6% | +14% |
-| Manufacture of other electronic and electric wires and cables [C2732] | +12% | +11% | +14% |
-| Sawmilling and planing of wood [C161] | +11% | +4% | +17% |
-| Manufacture of basic chemicals, fertilisers and nitrogen compounds, plastics and synthetic rubber in primary forms [C201] | +11% | +13% | +9% |
-| Manufacture of other inorganic basic chemicals [C2013] | +11% | +8% | +10% |
-| Industry (except construction, sewerage, waste management and remediation activities), except food, beverages and tobacco [B-E36_X_FOOD] | +11% | +11% | +8% |
-| Manufacture of other chemical products n.e.c. [C2059] | +11% | +10% | +8% |
-| Manufacture of other organic basic chemicals [C2014] | +11% | +18% | +8% |
-| Manufacture of imitation jewellery and related articles [C3213] | +10% | +6% | +11% |
-| Manufacture of wiring and wiring devices [C273] | +10% | +9% | +13% |
-| Mining and quarrying; manufacturing; electricity, gas, steam and air conditioning supply [B-D] | +10% | +10% | +7% |
-| Manufacture of chemicals and chemical products [C20] | +10% | +11% | +8% |
-| Manufacture of other chemical products [C205] | +10% | +9% | +7% |
+| Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. | priority_35 |
+|---|---|---|---|---|
+| Manufacture of refined petroleum products [C192] | +70% | +72% | +33% | low |
+| Manufacture of coke and refined petroleum products [C19] | +69% | +72% | +32% | low |
+| Copper production [C2444] | +35% | +34% | +42% | low |
+| Mining of metal ores [B07] | +35% | +33% | +33% | low |
+| MIG - energy [MIG_NRG] | +32% | +35% | +16% | low |
+| Manufacture of basic precious and other non-ferrous metals [C244] | +31% | +25% | +36% | low |
+| Manufacture of jewellery and related articles [C3212] | +31% | +17% | +42% | low |
+| Manufacture of jewellery, bijouterie and related articles [C321] | +26% | +14% | +36% | low |
+| Extraction of crude petroleum and natural gas [B06] | +23% | +41% | +13% | low |
+| Other non-ferrous metal production [C2445] | +23% | +25% | +15% | low |
+| Electricity, gas, steam and air conditioning supply [D35] | +22% | +24% | +12% | low |
+| Electricity, gas, steam and air conditioning supply [D] | +21% | +24% | +11% | low |
+| Aluminium production [C2442] | +18% | +18% | +19% | low |
+| Lead, zinc and tin production [C2443] | +16% | +16% | +14% | low |
+| Manufacture of basic metals [C24] | +15% | +15% | +14% | low |
+| Mining and quarrying [B] | +13% | +17% | +10% | low |
+| Casting of other non-ferrous metals [C2454] | +13% | +10% | +16% | low |
+| Repair of other equipment [C3319] | +12% | +6% | +14% | low |
+| Manufacture of other electronic and electric wires and cables [C2732] | +12% | +11% | +14% | low |
+| Sawmilling and planing of wood [C161] | +11% | +4% | +17% | low |
+| Manufacture of basic chemicals, fertilisers and nitrogen compounds, plastics and synthetic rubber in primary forms [C201] | +11% | +13% | +9% | low |
+| Manufacture of other inorganic basic chemicals [C2013] | +11% | +8% | +10% | low |
+| Industry (except construction, sewerage, waste management and remediation activities), except food, beverages and tobacco [B-E36_X_FOOD] | +11% | +11% | +8% | low |
+| Manufacture of other chemical products n.e.c. [C2059] | +11% | +10% | +8% | low |
+| Manufacture of other organic basic chemicals [C2014] | +11% | +18% | +8% | low |
+| Manufacture of imitation jewellery and related articles [C3213] | +10% | +6% | +11% | low |
+| Manufacture of wiring and wiring devices [C273] | +10% | +9% | +13% | low |
+| Mining and quarrying; manufacturing; electricity, gas, steam and air conditioning supply [B-D] | +10% | +10% | +7% | low |
+| Manufacture of chemicals and chemical products [C20] | +10% | +11% | +8% | low |
+| Manufacture of other chemical products [C205] | +10% | +9% | +7% | low |
 
 Взгляд назад, верх списка в декабре каждого года:
 
@@ -54,29 +57,29 @@
 
 Источник: Всемирный банк, все товары таблицы. Рядов: 67, месяц 2026-10. Медианный рост за 24 месяца: +12.6%. Держатся у максимума: 31% рядов.
 
-| Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. |
-|---|---|---|---|
-| Natural gas, Europe | +121% | +162% | +96% |
-| Natural gas index | +89% | +86% | +60% |
-| Fish meal | +73% | +61% | +55% |
-| Crude oil, Brent | +65% | +93% | +37% |
-| Copper | +52% | +35% | +83% |
-| Crude oil, average | +47% | +72% | +22% |
-| DAP | +40% | +7% | +50% |
-| Crude oil, Dubai | +37% | +60% | +13% |
-| Crude oil, WTI | +36% | +62% | +14% |
-| Lamb ** | +34% | +18% | +35% |
-| Liquefied natural gas, Japan | +32% | +49% | +31% |
-| Rubber, TSR20 ** | +27% | +49% | +76% |
-| Chicken ** | +24% | +7% | +16% |
-| Soybeans | +17% | +27% | -3% |
-| Tea, Mombasa | +13% | +4% | +8% |
-| Phosphate rock | +11% | +11% | -51% |
-| Sugar, US | +10% | +19% | -6% |
-| Rubber, RSS3 | +8% | +42% | +76% |
-| Soybean meal | +7% | +27% | -12% |
-| Groundnut oil ** | +6% | +14% | -5% |
-| Coal, Australian | +4% | +42% | +7% |
+| Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. | priority_35 |
+|---|---|---|---|---|
+| Natural gas, Europe | +121% | +162% | +96% | low |
+| Natural gas index | +89% | +86% | +60% | low |
+| Fish meal | +73% | +61% | +55% | low |
+| Crude oil, Brent | +65% | +93% | +37% | low |
+| Copper | +52% | +35% | +83% | low |
+| Crude oil, average | +47% | +72% | +22% | low |
+| DAP | +40% | +7% | +50% | low |
+| Crude oil, Dubai | +37% | +60% | +13% | low |
+| Crude oil, WTI | +36% | +62% | +14% | low |
+| Lamb ** | +34% | +18% | +35% | low |
+| Liquefied natural gas, Japan | +32% | +49% | +31% | low |
+| Rubber, TSR20 ** | +27% | +49% | +76% | low |
+| Chicken ** | +24% | +7% | +16% | low |
+| Soybeans | +17% | +27% | -3% | low |
+| Tea, Mombasa | +13% | +4% | +8% | low |
+| Phosphate rock | +11% | +11% | -51% | low |
+| Sugar, US | +10% | +19% | -6% | low |
+| Rubber, RSS3 | +8% | +42% | +76% | low |
+| Soybean meal | +7% | +27% | -12% | low |
+| Groundnut oil ** | +6% | +14% | -5% | low |
+| Coal, Australian | +4% | +42% | +7% | low |
 
 Взгляд назад, верх списка в декабре каждого года:
 
