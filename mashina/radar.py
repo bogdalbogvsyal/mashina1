@@ -34,6 +34,8 @@ import statistics
 import time
 import urllib.request
 
+from mashina.filters import score_entry
+
 UA = {"User-Agent": "mashina-research/0.1 (mashina-bot@users.noreply.github.com)"}
 BLS = "https://download.bls.gov/pub/time.series/wp/"
 EUROSTAT = ("https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpp_m"
@@ -260,10 +262,11 @@ def md_stream(L, title, src, s, k=None):
           f"{src} Рядов: {s['series']}, месяц {s['month']}. Медианный рост за 24 месяца: {100 * s['median_rise24']:+.1f}%. "
           f"Держатся у максимума: {100 * s['lasting_share']:.0f}% рядов."
           + (f" ВНИМАНИЕ: данные устарели на {s['stale_months']} мес." if s.get("stale_months", 0) > 4 else ""), "",
-          "| Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. |", "|---|---|---|---|"]
+          "| Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. | priority_35 |", "|---|---|---|---|---|"]
     for r in s["top"][:k]:
         r36 = f"{100 * r['rise36']:+.0f}%" if r["rise36"] is not None else "—"
-        L.append(f"| {r['title']} | {100 * r['rise24']:+.0f}% | {100 * r['rise12']:+.0f}% | {r36} |")
+        entry = score_entry(r["title"])
+        L.append(f"| {r['title']} | {100 * r['rise24']:+.0f}% | {100 * r['rise12']:+.0f}% | {r36} | {entry['priority_35']} |")
     L += ["", "Взгляд назад, верх списка в декабре каждого года:", ""]
     for y, b in s["lookback"].items():
         L.append(f"- **{y}** (медиана {100 * b['median_rise24']:+.1f}%): "
@@ -290,7 +293,10 @@ def main():
     L = ["# Радар: где цены говорят о дефиците", "",
          f"Запуск {out['run']}. Работает сам, по расписанию в GitHub Actions, каждую неделю. Правило записано в `mashina/radar.py`.",
          "Списки полные, ни один товар не выбран вручную. Строка наверху — это вопрос «почему?», а не ответ:",
-         "цена растёт и из-за пошлин, разовых событий, пересчёта индекса."]
+         "цена растёт и из-за пошлин, разовых событий, пересчёта индекса.",
+         "",
+         "К топ-сигналам добавлена оценка `priority_35` (насколько сигнал бьётся в цель почти пассивного большого дохода к ~35 годам).",
+         "Высокий приоритет = реалистична доля в активе + можно привлечь внешний капитал + можно начинать параллельно с учёбой."]
     if "eu" in out:
         md_stream(L, "А. Цены производителей ЕС по отраслям", "Источник: Eurostat, все опубликованные коды отраслей.", out["eu"])
     if "commodities" in out:
