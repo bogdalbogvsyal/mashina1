@@ -1,9 +1,9 @@
-"""Entry filters for the radar: jurisdiction, capital barrier, regulation, offtake.
+"""Entry filters for the radar: jurisdiction, capital barrier, regulation, offtake, and external financeability.
 
-These filters turn a price signal into a question the user can actually act on:
-"Can I enter this with limited capital, outside or inside Denmark?"
-
-They are deliberately coarse and public. They do not try to be complete.
+These filters turn a price signal into actionable questions:
+1. Can I enter this with limited personal capital?
+2. Can external investors be brought in?
+3. Where does this make the most sense jurisdictionally?
 """
 
 JURISDICTIONS = {
@@ -33,31 +33,43 @@ OFFTAKE = {
     "strong": "Public tenders, long-term offtake agreements, or mandated demand (e.g. green targets).",
 }
 
+FINANCEABILITY = {
+    "hard": "Mostly personal capital or very patient angels. Needs strong track record or unique access.",
+    "medium": "Possible with family offices, trade finance, or strategic partners once there is a contract or small proof.",
+    "easier": "Offtake or asset-backed structure makes it more understandable for private credit, EIFO-type funds, or commodity investors.",
+}
+
 
 def score_entry(signal: str) -> dict:
-    """Very rough heuristic. Real scoring needs manual review of the specific case."""
+    """Rough heuristic. Real decisions need case-by-case review."""
     s = signal.lower()
     capital = "medium"
     regulation = "medium"
     offtake = "medium"
+    financeability = "medium"
     preferred = ["NL", "DK"]
 
     if any(w in s for w in ["software", "data", "trading", "arbitrage", "service"]):
         capital = "low"
         regulation = "light"
+        financeability = "medium"
     if any(w in s for w in ["refining", "processing", "plant", "mine", "smelter"]):
         capital = "high"
         regulation = "heavy"
+        financeability = "hard"
     if any(w in s for w in ["defense", "pharma", "energy infrastructure", "nuclear"]):
         regulation = "heavy"
         capital = "high"
-    if any(w in s for w in ["cbam", "green", "renewable", "tender", "public"]):
+        financeability = "hard"
+    if any(w in s for w in ["cbam", "green", "renewable", "tender", "public", "offtake"]):
         offtake = "strong"
+        financeability = "easier"
 
     return {
         "capital": capital,
         "regulation": regulation,
         "offtake": offtake,
+        "financeability": financeability,
         "preferred_jurisdictions": preferred,
-        "notes": "Heuristic only. Check offtake and permits before acting.",
+        "notes": "Heuristic only. Strong offtake improves external financeability the most.",
     }
