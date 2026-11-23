@@ -1,6 +1,6 @@
 # Радар: где цены говорят о дефиците
 
-Запуск 2026-11-16 13:46 UTC. Работает сам, по расписанию в GitHub Actions, каждую неделю. Правило записано в `mashina/radar.py`.
+Запуск 2026-11-23 16:08 UTC. Работает сам, по расписанию в GitHub Actions, каждую неделю. Правило записано в `mashina/radar.py`.
 Списки полные, ни один товар не выбран вручную. Строка наверху — это вопрос «почему?», а не ответ:
 цена растёт и из-за пошлин, разовых событий, пересчёта индекса.
 
@@ -13,36 +13,36 @@
 
 | Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. | priority_35 |
 |---|---|---|---|---|
-| Manufacture of refined petroleum products [C192] | +70% | +72% | +33% | low |
-| Manufacture of coke and refined petroleum products [C19] | +69% | +72% | +32% | low |
-| Copper production [C2444] | +35% | +34% | +42% | low |
-| Mining of metal ores [B07] | +35% | +33% | +33% | low |
-| MIG - energy [MIG_NRG] | +32% | +35% | +16% | low |
-| Manufacture of basic precious and other non-ferrous metals [C244] | +31% | +25% | +36% | low |
-| Manufacture of jewellery and related articles [C3212] | +31% | +17% | +42% | low |
-| Manufacture of jewellery, bijouterie and related articles [C321] | +26% | +14% | +36% | low |
-| Extraction of crude petroleum and natural gas [B06] | +23% | +41% | +13% | low |
-| Other non-ferrous metal production [C2445] | +23% | +25% | +15% | low |
-| Electricity, gas, steam and air conditioning supply [D35] | +22% | +24% | +12% | low |
-| Electricity, gas, steam and air conditioning supply [D] | +21% | +24% | +11% | low |
-| Aluminium production [C2442] | +18% | +18% | +19% | low |
-| Lead, zinc and tin production [C2443] | +16% | +16% | +14% | low |
-| Manufacture of basic metals [C24] | +15% | +15% | +14% | low |
-| Mining and quarrying [B] | +13% | +17% | +10% | low |
-| Casting of other non-ferrous metals [C2454] | +13% | +10% | +16% | low |
-| Repair of other equipment [C3319] | +12% | +6% | +14% | low |
-| Manufacture of other electronic and electric wires and cables [C2732] | +12% | +11% | +14% | low |
-| Sawmilling and planing of wood [C161] | +11% | +4% | +17% | low |
-| Manufacture of basic chemicals, fertilisers and nitrogen compounds, plastics and synthetic rubber in primary forms [C201] | +11% | +13% | +9% | low |
-| Manufacture of other inorganic basic chemicals [C2013] | +11% | +8% | +10% | low |
-| Industry (except construction, sewerage, waste management and remediation activities), except food, beverages and tobacco [B-E36_X_FOOD] | +11% | +11% | +8% | low |
-| Manufacture of other chemical products n.e.c. [C2059] | +11% | +10% | +8% | low |
-| Manufacture of other organic basic chemicals [C2014] | +11% | +18% | +8% | low |
-| Manufacture of imitation jewellery and related articles [C3213] | +10% | +6% | +11% | low |
-| Manufacture of wiring and wiring devices [C273] | +10% | +9% | +13% | low |
-| Mining and quarrying; manufacturing; electricity, gas, steam and air conditioning supply [B-D] | +10% | +10% | +7% | low |
-| Manufacture of chemicals and chemical products [C20] | +10% | +11% | +8% | low |
-| Manufacture of other chemical products [C205] | +10% | +9% | +7% | low |
+| Manufacture of refined petroleum products [C192] | +70% | +72% | +33% | medium |
+| Manufacture of coke and refined petroleum products [C19] | +69% | +72% | +32% | medium |
+| Copper production [C2444] | +35% | +34% | +42% | medium |
+| Mining of metal ores [B07] | +35% | +33% | +33% | medium |
+| MIG - energy [MIG_NRG] | +32% | +35% | +16% | medium |
+| Manufacture of basic precious and other non-ferrous metals [C244] | +31% | +25% | +36% | medium |
+| Manufacture of jewellery and related articles [C3212] | +31% | +17% | +42% | medium |
+| Manufacture of jewellery, bijouterie and related articles [C321] | +26% | +14% | +36% | medium |
+| Extraction of crude petroleum and natural gas [B06] | +23% | +41% | +13% | medium |
+| Other non-ferrous metal production [C2445] | +23% | +25% | +15% | medium |
+| Electricity, gas, steam and air conditioning supply [D35] | +22% | +24% | +12% | medium |
+| Electricity, gas, steam and air conditioning supply [D] | +21% | +24% | +11% | medium |
+| Aluminium production [C2442] | +18% | +18% | +19% | medium |
+| Lead, zinc and tin production [C2443] | +16% | +16% | +14% | medium |
+| Manufacture of basic metals [C24] | +15% | +15% | +14% | medium |
+| Mining and quarrying [B] | +13% | +17% | +10% | medium |
+| Casting of other non-ferrous metals [C2454] | +13% | +10% | +16% | medium |
+| Repair of other equipment [C3319] | +12% | +6% | +14% | medium |
+| Manufacture of other electronic and electric wires and cables [C2732] | +12% | +11% | +14% | medium |
+| Sawmilling and planing of wood [C161] | +11% | +4% | +17% | medium |
+| Manufacture of basic chemicals, fertilisers and nitrogen compounds, plastics and synthetic rubber in primary forms [C201] | +11% | +13% | +9% | medium |
+| Manufacture of other inorganic basic chemicals [C2013] | +11% | +8% | +10% | medium |
+| Industry (except construction, sewerage, waste management and remediation activities), except food, beverages and tobacco [B-E36_X_FOOD] | +11% | +11% | +8% | medium |
+| Manufacture of other chemical products n.e.c. [C2059] | +11% | +10% | +8% | medium |
+| Manufacture of other organic basic chemicals [C2014] | +11% | +18% | +8% | medium |
+| Manufacture of imitation jewellery and related articles [C3213] | +10% | +6% | +11% | medium |
+| Manufacture of wiring and wiring devices [C273] | +10% | +9% | +13% | medium |
+| Mining and quarrying; manufacturing; electricity, gas, steam and air conditioning supply [B-D] | +10% | +10% | +7% | medium |
+| Manufacture of chemicals and chemical products [C20] | +10% | +11% | +8% | medium |
+| Manufacture of other chemical products [C205] | +10% | +9% | +7% | medium |
 
 Взгляд назад, верх списка в декабре каждого года:
 
@@ -59,27 +59,27 @@
 
 | Что подорожало и держится | 24 мес. | 12 мес. | 36 мес. | priority_35 |
 |---|---|---|---|---|
-| Natural gas, Europe | +121% | +162% | +96% | low |
-| Natural gas index | +89% | +86% | +60% | low |
-| Fish meal | +73% | +61% | +55% | low |
-| Crude oil, Brent | +65% | +93% | +37% | low |
-| Copper | +52% | +35% | +83% | low |
-| Crude oil, average | +47% | +72% | +22% | low |
-| DAP | +40% | +7% | +50% | low |
-| Crude oil, Dubai | +37% | +60% | +13% | low |
-| Crude oil, WTI | +36% | +62% | +14% | low |
-| Lamb ** | +34% | +18% | +35% | low |
-| Liquefied natural gas, Japan | +32% | +49% | +31% | low |
-| Rubber, TSR20 ** | +27% | +49% | +76% | low |
-| Chicken ** | +24% | +7% | +16% | low |
-| Soybeans | +17% | +27% | -3% | low |
-| Tea, Mombasa | +13% | +4% | +8% | low |
-| Phosphate rock | +11% | +11% | -51% | low |
-| Sugar, US | +10% | +19% | -6% | low |
-| Rubber, RSS3 | +8% | +42% | +76% | low |
-| Soybean meal | +7% | +27% | -12% | low |
-| Groundnut oil ** | +6% | +14% | -5% | low |
-| Coal, Australian | +4% | +42% | +7% | low |
+| Natural gas, Europe | +121% | +162% | +96% | medium |
+| Natural gas index | +89% | +86% | +60% | medium |
+| Fish meal | +73% | +61% | +55% | medium |
+| Crude oil, Brent | +65% | +93% | +37% | medium |
+| Copper | +52% | +35% | +83% | medium |
+| Crude oil, average | +47% | +72% | +22% | medium |
+| DAP | +40% | +7% | +50% | medium |
+| Crude oil, Dubai | +37% | +60% | +13% | medium |
+| Crude oil, WTI | +36% | +62% | +14% | medium |
+| Lamb ** | +34% | +18% | +35% | medium |
+| Liquefied natural gas, Japan | +32% | +49% | +31% | medium |
+| Rubber, TSR20 ** | +27% | +49% | +76% | medium |
+| Chicken ** | +24% | +7% | +16% | medium |
+| Soybeans | +17% | +27% | -3% | medium |
+| Tea, Mombasa | +13% | +4% | +8% | medium |
+| Phosphate rock | +11% | +11% | -51% | medium |
+| Sugar, US | +10% | +19% | -6% | medium |
+| Rubber, RSS3 | +8% | +42% | +76% | medium |
+| Soybean meal | +7% | +27% | -12% | medium |
+| Groundnut oil ** | +6% | +14% | -5% | medium |
+| Coal, Australian | +4% | +42% | +7% | medium |
 
 Взгляд назад, верх списка в декабре каждого года:
 
